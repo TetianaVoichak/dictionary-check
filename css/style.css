@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Roboto:ital@0;1&display=swap");
+body, footer {
+  background-color: rgb(219, 232, 230);
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #d1f4edcf;
+}
+.h1-info, .start-info
+{
+  margin: 15px auto 15px 15px;
+}
+.infoInst
+{
+  height: 180px;
+  display: flex;
+}
+.info {
+  font-weight: 700;
+  color: rgb(31, 106, 81);
+  background-color: cadetblue;
+
+}
+.btn-instr
+{
+  color: #fff;
+}
+.instruction {
+  visibility: hidden;
+  margin: 15px auto 15px 15px;
+}
+.btn-instr
+{
+  height: 40px;
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 5px 5px 5px;
+  background: #b0f0e5cf;
+  font-weight: 700;
+  border-color: #fff;
+  color: #fff;
+ 
+}
+
+.input_f {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.input__file-icon {
+  margin: 10px 10px 10px;
+  display: flex;
+}
+
+.input-file-btn {
+  height: 60px;
+  background: #b0f0e5cf;
+  color: #fff;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 50px;
+  right: 50%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border-radius: 3px;
+  cursor: pointer;
+  border-color: #fff;
+}
+.input__file-icon-wrap {
+  display: flex;
+  align-items: center;
+}
+
+
+.start-btn {
+
+  height: 60px;
+  margin-bottom: 15px;
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+  background: #b0f0e5cf;
+  font-weight: 700;
+  border-color: #fff;
+  color: #fff;
+}
+
+
+.forma-translate {
+  font-size: 20px;
+  padding: 15px 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  left: 50%;
+  right: 50%;
+  border: none;
+  border-bottom: 1px solid #fff;
+}
+
+.word-for-translate {
+  width: 100%;
+  height: 30px;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  display: flex;
+
+  border-bottom: 1px solid #fff;
+  border-color: #fff;
+}
+
+.input-translate {
+  width: 100%;
+  height: 30px;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  display: flex;
+  border-color: #fff;
+  border-bottom: 1px solid #fff;
+  background:  #fff;
+}
+
+.check-btn {
+  height: 60px;
+  margin-bottom: 15px;
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+  background: #b0f0e5cf;
+  font-weight: 700;
+  border-color: #fff;
+  color: #fff;
+}
+
+.result {
+  visibility: hidden;
+  margin: 15px 15px 15px 15px;
+  color: rgb(31, 106, 81);
+  font-weight: 700;
+  
+}
+
+.help-btn {
+  height: 60px;
+
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 15px 15px 15px 15px;
+  background: #b0f0e5cf;
+  font-weight: 700;
+  border-color: #fff;
+  color: #fff;
+}
+.help-word {
+  visibility: hidden;
+  margin: 15px 15px 0 15px;
+  color: rgb(31, 106, 81);
+  font-weight: 700;
+}
+.footer-info
+{
+  color: rgb(31, 106, 81);
+  background-color: cadetblue;
+  height: 50px;
+  position: relative;
+}
+.author{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
