@@ -1,1 +1,14 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="91.44mm" height="91.44mm" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 9144 9144" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">.str0 {stroke:white;stroke-width:176.38;stroke-linecap:round;stroke-linejoin:round} .fil1 {fill:none} .fil0 {fill:url(#a)}</style>
+  <linearGradient id="a" x1="8595.4" x2="548.64" y1="8595.4" y2="548.63" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#48CFAE" offset="0"/>
+   <stop stop-color="#4FC0E8" offset="1"/>
+  </linearGradient>
+ </defs>
+ <polygon class="fil0" points="0 0 9144 0 9144 9144 0 9144"/>
+ <polyline class="fil1 str0" points="6689 4938 6689 6468 2455 6468 2455 4938"/>
+ <polyline class="fil1 str0" points="4572 2676 4572 5350 3744 4522"/>
+ <polyline class="fil1 str0" points="4572 2676 4572 5350 5400 4522"/>
+</svg>
