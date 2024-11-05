@@ -60,7 +60,6 @@ return wordTranslate;
 
   }
 
-
 let randWord = function()
 {
   var index = Math.floor(Math.random() * allWords.length);
@@ -76,7 +75,7 @@ for(var i = 0 ; i < allWords.length;i++)
   words[i] = allWords[index].translate;
   allWords[index].translate = allWords[i].translate;
   allWords[i].translate = words[i];
-  //console.log(words[i]); 
+
 }
   }
 
@@ -92,6 +91,7 @@ let words = [];
 let infoErrFile = document.querySelector(".error-file");
 let moreInfo = document.querySelector(".btn-instr");
 let transl = document.querySelector(".input-translate");
+
 
 moreInfo.addEventListener("click", () => {
   let instruction  = document.querySelector(".instruction");
@@ -122,32 +122,90 @@ btnCheck.addEventListener("click",() => {
   words.checkWord();
 });
 
+// Function to display error message
+function showError(message) {
+  infoErrFile.textContent = message;
+  infoErrFile.style.visibility = "visible"; 
+
+}
+
+
+
+// Function to reset the error message
+function resetError() {
+  infoErrFile.textContent = "";
+  infoErrFile.style.visibility = "hidden";
+}
+
+//reset information from previous file
+function resetInfoFromPreviousFile(){
+  allWords.length=0;
+  document.querySelector(".word-for-translate").value="";
+document.querySelector(".input-translate").value = ""; 
+document.querySelector(".help-word").textContent = "";
+document.querySelector(".result").textContent = "";
+  }
+
 
 //select a file and load info from this file
 
 fileSelector.addEventListener("change", (event) => {
   const fileWithWords = event.target.files;
+  if (fileWithWords.length === 0) {
+    showError("No file selected");
+    resetInfoFromPreviousFile();
+    return;
+  }
+  let file = fileWithWords[0];
 
-let file = document.querySelector(".input__file").files[0];
+// Check file type
+if (file.type !== "text/plain") {
+  showError("Please upload a valid .txt file");
+  resetInfoFromPreviousFile();
+  return;
+}
+
+ file = document.querySelector(".input__file").files[0];
 let reader = new FileReader();
 reader.readAsText(file, "UTF-8");
 reader.onload = function() {
-
+resetError();
 let str = reader.result;
 
 document.querySelector(".input-translate").value = ""; 
 document.querySelector(".help-word").textContent = "";
 document.querySelector(".result").textContent = "";
+
+// Check file format before loading into array
+if (!validateFileContent(str)) {
+  showError( "Invalid file format");
+  resetInfoFromPreviousFile();
+  return;
+}
+
  funcPutWordsFromFileInVariable(str);
  wordforTranslate.value =  randWord();
 
 }
 reader.onerror = function() {
-infoErrFile.textContent ="File upload error";
+  showError("File upload error");
+  resetInfoFromPreviousFile();
   console.log(reader.error);
 
     }
 });
+
+
+// Function to check file format
+function validateFileContent(str) {
+  const lines = str.split('\n');
+  for (let line of lines) {
+    if (!line.includes(' - ')) {
+      return false; // Format does not match
+    }
+  }
+  return true; // The format is correct
+}
 
 
 //write info from file in a massiv with words
