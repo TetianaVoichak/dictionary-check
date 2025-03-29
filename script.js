@@ -72,18 +72,25 @@ let rememberAllWordsForATranslation = function () {
   }
 }
 
-let wordforTranslate = document.querySelector(".word-for-translate");
-let textResult = document.querySelector(".result");
+const INPUT_TRANSLATE = ".input-translate";
+const RESULT = ".result";
+const INPUT_FILE = ".input__file";
+const WORLD_FOR_TRANSLATE = ".word-for-translate";
+const HELP_WORD = ".help-word";
+const INFO_INSTRUCTION = ".infoInst";
+
+let wordforTranslate = document.querySelector(WORLD_FOR_TRANSLATE);
+let textResult = document.querySelector(RESULT);
 let btnCheck = document.querySelector(".check-btn");
-const fileSelector = document.querySelector(".input__file");
+const fileSelector = document.querySelector(INPUT_FILE);
 let btnStart = document.querySelector(".start-btn");
 let btnHelp = document.querySelector(".help-btn");
-let helpWord = document.querySelector(".help-word");
+let helpWord = document.querySelector(HELP_WORD);
 let allWords = []; //massiv with 2 words(a word and his translate)
 let words = [];
 let infoErrFile = document.querySelector(".error-file");
 let moreInfo = document.querySelector(".btn-instr");
-let transl = document.querySelector(".input-translate");
+let transl = document.querySelector(INPUT_TRANSLATE);
 
 
 moreInfo.addEventListener("click", () => {
@@ -93,13 +100,13 @@ moreInfo.addEventListener("click", () => {
   if (instruction.style.visibility == "visible") {
     instruction.style.visibility = "hidden";
     textBtnInstr.textContent = "Instruction click here";
-    document.querySelector(".infoInst").style.height = "190px";
+    document.querySelector(INFO_INSTRUCTION).style.height = "190px";
 
 
   } else {
     instruction.style.visibility = "visible";
     textBtnInstr.textContent = "Hide information";
-    document.querySelector(".infoInst").style.height = "390px";
+    document.querySelector(INFO_INSTRUCTION).style.height = "390px";
   }
 
 })
@@ -107,8 +114,8 @@ moreInfo.addEventListener("click", () => {
 //check word with translate
 
 btnCheck.addEventListener("click", () => {
-  let firstWord = document.querySelector(".word-for-translate").value;
-  let ansverWord = document.querySelector(".input-translate").value;
+  let firstWord = document.querySelector(WORLD_FOR_TRANSLATE).value;
+  let ansverWord = document.querySelector(INPUT_TRANSLATE).value;
   let words = new WordTranslate(firstWord, ansverWord);
   words.checkWord();
 });
@@ -131,10 +138,10 @@ function resetError() {
 //reset information from previous file
 function resetInfoFromPreviousFile() {
   allWords.length = 0;
-  document.querySelector(".word-for-translate").value = "";
-  document.querySelector(".input-translate").value = "";
-  document.querySelector(".help-word").textContent = "";
-  document.querySelector(".result").textContent = "";
+  document.querySelector(WORLD_FOR_TRANSLATE).value = "";
+  document.querySelector(INPUT_TRANSLATE).value = "";
+  document.querySelector(HELP_WORD).textContent = "";
+  document.querySelector(RESULT).textContent = "";
 }
 
 
@@ -156,16 +163,16 @@ fileSelector.addEventListener("change", (event) => {
     return;
   }
 
-  file = document.querySelector(".input__file").files[0];
+  file = document.querySelector(INPUT_FILE).files[0];
   let reader = new FileReader();
   reader.readAsText(file, "UTF-8");
   reader.onload = function () {
     resetError();
     let str = reader.result;
 
-    document.querySelector(".input-translate").value = "";
-    document.querySelector(".help-word").textContent = "";
-    document.querySelector(".result").textContent = "";
+    document.querySelector(INPUT_TRANSLATE).value = "";
+    document.querySelector(HELP_WORD).textContent = "";
+    document.querySelector(RESULT).textContent = "";
 
     // Check file format before loading into array
     if (!validateFileContent(str)) {
@@ -187,16 +194,11 @@ fileSelector.addEventListener("change", (event) => {
 });
 
 
-// Function to check file format
-function validateFileContent(str) {
-  const lines = str.split('\n');
-  for (let line of lines) {
-    if (!line.includes(' - ')) {
-      return false; // Format does not match
-    }
-  }
-  return true; // The format is correct
-}
+/* Function to check the file format.
+* Returns true if the format is correct, otherwise false.
+*/
+
+const validateFileContent = str => str.split("\n").every(line => line.includes(" - "));
 
 
 //write info from file in a massiv with words
@@ -214,7 +216,7 @@ let funcPutWordsFromFileInVariable = function (str) {
 }
 
 transl.addEventListener("click", () => {
-  document.querySelector(".input-translate").value = "";
+  document.querySelector(INPUT_TRANSLATE).value = "";
   transl.style.background = "#fff";
 })
 
@@ -222,7 +224,7 @@ transl.addEventListener("click", () => {
 
 btnStart.addEventListener("click", () => {
   transl.style.background = "#fff";
-  document.querySelector(".input-translate").value = "";
+  document.querySelector(INPUT_TRANSLATE).value = "";
   textResult.textContent = "";
   helpWord.textContent = "";
   wordforTranslate.value = randWord();
@@ -230,5 +232,5 @@ btnStart.addEventListener("click", () => {
 
 //show word if you dont know his translate
 btnHelp.addEventListener("click", () => {
-  showRightWord(document.querySelector(".word-for-translate").value)
+  showRightWord(document.querySelector(WORLD_FOR_TRANSLATE).value)
 })
