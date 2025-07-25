@@ -1,12 +1,25 @@
-# dictionary-check
-You can upload words and practice. Create a file with rules.
-
-Create a txt file. Write a couple of word like this:
-
-word 1 - translate 1 <br>
-word 2 - translate 2
+# Dictionary Check
+A simple vocabulary trainer that lets you upload your own words and practice them.
 
 
-JavaScript <br>
-CSS <br>
+# How to use
+Create a .txt file formatted like this:
+
+word 1 - translation 1  
+word 2 - translation 2  
+
+Example:
+
+house - Haus  
+sun - Sonne  
+
+Upload the file in the app.
+
+
+## Technologies Used
 HTML
+
+CSS
+
+JavaScript (Vanilla)
+
